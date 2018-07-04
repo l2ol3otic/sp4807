@@ -3,24 +3,35 @@ import { CommonModule } from '@angular/common';
 import { BsDropdownModule } from 'ngx-bootstrap';
 import { AuthNavbarComponent } from './components/auth-navbar/auth-navbar.component';
 import { AuthSidebarComponent } from './components/auth-sidebar/auth-sidebar.component';
-import { BsComponentRef } from 'ngx-bootstrap/component-loader/bs-component-ref.class';
 import { AuthContentComponent } from './components/auth-content/auth-content.component';
+import { RouterModule } from '@angular/router';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { newUserService } from './services/account.service';
 
 @NgModule({
   imports: [
     CommonModule,
-    BsDropdownModule.forRoot() 
+    BsDropdownModule, 
+    RouterModule,
+    ReactiveFormsModule,
+    FormsModule
+
   ],
   declarations: [
     AuthNavbarComponent,
      AuthSidebarComponent,
-     AuthContentComponent
+     AuthContentComponent,
   ],
   exports: [
     AuthNavbarComponent,
     AuthSidebarComponent,
     BsDropdownModule,
-    AuthContentComponent
+    AuthContentComponent,
+    ReactiveFormsModule,
+    FormsModule
+  ],
+  providers:[
+    newUserService
   ]
 })
 export class SharedsModule { }
